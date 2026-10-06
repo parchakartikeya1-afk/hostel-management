@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Vacating Records{% endblock %}
+{% block content %}
+<div class="section-head"><div><h2>Vacating Records</h2><p>Students who vacated accommodation</p></div><a class="button" href="{{ url_for('add_vacating') }}">+ Vacate Student</a></div>
+<div class="table-card"><table><thead><tr><th>Student</th><th>Hostel</th><th>Room</th><th>Bed</th><th>Date</th><th>Reason</th></tr></thead><tbody>
+{% for v in records %}<tr><td>{{ v.Name }}</td><td>{{ v.HostelName }}</td><td>{{ v.RoomNumber }}</td><td>{{ v.BedNumber }}</td><td>{{ v.VacateDate }}</td><td>{{ v.Reason }}</td></tr>
+{% else %}<tr><td colspan="6" class="empty">No vacating records found.</td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

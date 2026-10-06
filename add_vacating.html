@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Vacate Student{% endblock %}{% block content %}
+<div class="form-card"><h2>Vacate Student</h2><form method="POST">
+<label>Student</label><select name="student_id" required><option value="">Select student</option>{% for s in students %}<option value="{{ s.StudentID }}">{{ s.Name }}</option>{% endfor %}</select>
+<label>Allocated Bed</label><select name="bed_id" required><option value="">Select bed</option>{% for b in beds %}<option value="{{ b.BedID }}">{{ b.HostelName }} • Room {{ b.RoomNumber }} • Bed {{ b.BedNumber }}</option>{% endfor %}</select>
+<label>Vacate Date</label><input type="date" name="vacate_date" required><label>Reason</label><input name="reason" placeholder="Reason"><label>Remarks</label><textarea name="remarks"></textarea>
+<button class="button" type="submit">Confirm Vacating</button></form></div>{% endblock %}

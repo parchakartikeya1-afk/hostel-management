@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block title %}New Maintenance Request{% endblock %}{% block content %}
+<div class="form-card"><h2>Maintenance Request</h2><form method="POST">
+<label>Student</label><select name="student_id" required><option value="">Select student</option>{% for s in students %}<option value="{{ s.StudentID }}">{{ s.Name }}</option>{% endfor %}</select>
+<label>Room</label><select name="room_id" required><option value="">Select room</option>{% for r in rooms %}<option value="{{ r.RoomID }}">{{ r.HostelName }} - Room {{ r.RoomNumber }}</option>{% endfor %}</select>
+<label>Issue</label><input name="issue" placeholder="Example: Broken fan" required><label>Description</label><textarea name="description"></textarea>
+<label>Request Date</label><input type="date" name="request_date" required><label>Status</label><select name="status"><option>Pending</option><option>In Progress</option><option>Completed</option></select>
+<button class="button" type="submit">Submit Request</button></form></div>{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Allocations{% endblock %}
+{% block content %}
+<div class="section-head"><div><h2>Room Allocations</h2><p>Student accommodation records</p></div><a class="button" href="{{ url_for('add_allocation') }}">+ Allocate Bed</a></div>
+<div class="table-card"><table><thead><tr><th>Student</th><th>Hostel</th><th>Room</th><th>Bed</th><th>Allocated</th><th>Status</th></tr></thead><tbody>
+{% for a in allocations %}<tr><td>{{ a.Name }}</td><td>{{ a.HostelName }}</td><td>{{ a.RoomNumber }}</td><td>{{ a.BedNumber }}</td><td>{{ a.AllocationDate }}</td><td>{{ a.Status }}</td></tr>
+{% else %}<tr><td colspan="6" class="empty">No allocations found.</td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

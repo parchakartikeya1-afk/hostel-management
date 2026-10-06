@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Complaints{% endblock %}
+{% block content %}
+<div class="section-head"><div><h2>Complaints</h2><p>Track student complaints</p></div><a class="button" href="{{ url_for('add_complaint') }}">+ Add Complaint</a></div>
+<div class="table-card"><table><thead><tr><th>ID</th><th>Student</th><th>Type</th><th>Description</th><th>Date</th><th>Status</th></tr></thead><tbody>
+{% for c in complaints %}<tr><td>{{ c.ComplaintID }}</td><td>{{ c.Name }}</td><td>{{ c.ComplaintType }}</td><td>{{ c.Description }}</td><td>{{ c.ComplaintDate }}</td><td>{{ c.Status }}</td></tr>
+{% else %}<tr><td colspan="6" class="empty">No complaints found.</td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

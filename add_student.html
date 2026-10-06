@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}Add Student{% endblock %}{% block content %}
+<div class="form-card"><h2>Register Student</h2><form method="POST"><div class="form-grid">
+<input name="name" placeholder="Full Name" required><select name="gender"><option>Male</option><option>Female</option><option>Other</option></select>
+<input type="date" name="dob"><input name="phone" placeholder="Phone"><input type="email" name="email" placeholder="Email"><input name="department" placeholder="Department"><input type="number" name="year" placeholder="Year of Study">
+</div><button class="button" type="submit">Save Student</button></form></div>{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Students{% endblock %}
+{% block content %}
+<div class="section-head"><div><h2>Students</h2><p>Manage student records</p></div><a class="button" href="{{ url_for('add_student') }}">+ Add Student</a></div>
+<div class="table-card"><table><thead><tr><th>ID</th><th>Name</th><th>Gender</th><th>Phone</th><th>Email</th><th>Department</th><th>Year</th></tr></thead><tbody>
+{% for s in students %}<tr><td>{{ s.StudentID }}</td><td>{{ s.Name }}</td><td>{{ s.Gender }}</td><td>{{ s.Phone }}</td><td>{{ s.Email }}</td><td>{{ s.Department }}</td><td>{{ s.YearOfStudy }}</td></tr>
+{% else %}<tr><td colspan="7" class="empty">No students found.</td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

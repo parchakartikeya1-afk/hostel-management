@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Service Requests{% endblock %}
+{% block content %}
+<div class="section-head"><div><h2>Service Requests</h2><p>Student requests for hostel services</p></div></div>
+<div class="table-card"><table><thead><tr><th>ID</th><th>Student</th><th>Service</th><th>Date</th><th>Status</th></tr></thead><tbody>
+{% for r in requests %}<tr><td>{{ r.ServiceRequestID }}</td><td>{{ r.Name }}</td><td>{{ r.ServiceName }}</td><td>{{ r.RequestDate }}</td><td>{{ r.Status }}</td></tr>
+{% else %}<tr><td colspan="5" class="empty">No service requests found.</td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

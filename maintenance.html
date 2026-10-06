@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Maintenance{% endblock %}
+{% block content %}
+<div class="section-head"><div><h2>Maintenance</h2><p>Track hostel maintenance requests</p></div><a class="button" href="{{ url_for('add_maintenance') }}">+ New Request</a></div>
+<div class="table-card"><table><thead><tr><th>ID</th><th>Student</th><th>Hostel</th><th>Room</th><th>Issue</th><th>Date</th><th>Status</th></tr></thead><tbody>
+{% for m in maintenance %}<tr><td>{{ m.RequestID }}</td><td>{{ m.Name }}</td><td>{{ m.HostelName }}</td><td>{{ m.RoomNumber }}</td><td>{{ m.Issue }}</td><td>{{ m.RequestDate }}</td><td>{{ m.Status }}</td></tr>
+{% else %}<tr><td colspan="7" class="empty">No maintenance requests found.</td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

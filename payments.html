@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Payments{% endblock %}
+{% block content %}
+<div class="section-head"><div><h2>Payments</h2><p>Hostel fee and payment records</p></div><a class="button" href="{{ url_for('add_payment') }}">+ Add Payment</a></div>
+<div class="table-card"><table><thead><tr><th>ID</th><th>Student</th><th>Amount</th><th>Date</th><th>Type</th><th>Status</th></tr></thead><tbody>
+{% for p in payments %}<tr><td>{{ p.PaymentID }}</td><td>{{ p.Name }}</td><td>₹{{ p.Amount }}</td><td>{{ p.PaymentDate }}</td><td>{{ p.PaymentType }}</td><td>{{ p.PaymentStatus }}</td></tr>
+{% else %}<tr><td colspan="6" class="empty">No payment records found.</td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

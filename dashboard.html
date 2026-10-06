@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="cards">
+<div class="stat"><span>Students</span><strong>{{ stats.students }}</strong><small>Registered students</small></div>
+<div class="stat"><span>Hostels</span><strong>{{ stats.hostels }}</strong><small>Hostel blocks</small></div>
+<div class="stat"><span>Rooms</span><strong>{{ stats.rooms }}</strong><small>Total rooms</small></div>
+<div class="stat"><span>Available Beds</span><strong>{{ stats.available }}</strong><small>Ready for allocation</small></div>
+<div class="stat"><span>Pending Payments</span><strong>{{ stats.payments }}</strong><small>Payment records</small></div>
+<div class="stat"><span>Open Complaints</span><strong>{{ stats.complaints }}</strong><small>Needs attention</small></div>
+<div class="stat"><span>Maintenance</span><strong>{{ stats.maintenance }}</strong><small>Open requests</small></div>
+</div>
+<div class="section-head"><div><h2>Recent Allocations</h2><p>Currently active accommodation</p></div><a class="button" href="{{ url_for('add_allocation') }}">+ Allocate Bed</a></div>
+<div class="table-card"><table><thead><tr><th>Student</th><th>Hostel</th><th>Room</th><th>Bed</th><th>Date</th></tr></thead><tbody>
+{% for a in allocations %}
+<tr><td>{{ a.Name }}</td><td>{{ a.HostelName }}</td><td>{{ a.RoomNumber }}</td><td>{{ a.BedNumber }}</td><td>{{ a.AllocationDate }}</td></tr>
+{% else %}<tr><td colspan="5" class="empty">No active allocations.</td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

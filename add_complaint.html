@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block title %}Add Complaint{% endblock %}{% block content %}
+<div class="form-card"><h2>Submit Complaint</h2><form method="POST">
+<label>Student</label><select name="student_id" required><option value="">Select student</option>{% for s in students %}<option value="{{ s.StudentID }}">{{ s.Name }}</option>{% endfor %}</select>
+<label>Complaint Type</label><select name="complaint_type"><option>Room</option><option>Food</option><option>Electricity</option><option>Water</option><option>Internet</option><option>Cleanliness</option><option>Other</option></select>
+<label>Description</label><textarea name="description" required></textarea><label>Complaint Date</label><input type="date" name="complaint_date" required>
+<label>Status</label><select name="status"><option>Pending</option><option>In Progress</option><option>Resolved</option></select>
+<button class="button" type="submit">Submit Complaint</button></form></div>{% endblock %}

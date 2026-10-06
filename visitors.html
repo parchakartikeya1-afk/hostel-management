@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Visitors{% endblock %}
+{% block content %}
+<div class="section-head"><div><h2>Visitors</h2><p>Hostel visitor records</p></div></div>
+<div class="table-card"><table><thead><tr><th>ID</th><th>Student</th><th>Visitor</th><th>Relationship</th><th>Date</th><th>Entry</th><th>Exit</th></tr></thead><tbody>
+{% for v in visitors %}<tr><td>{{ v.VisitorID }}</td><td>{{ v.Name }}</td><td>{{ v.VisitorName }}</td><td>{{ v.Relationship }}</td><td>{{ v.VisitDate }}</td><td>{{ v.EntryTime }}</td><td>{{ v.ExitTime }}</td></tr>
+{% else %}<tr><td colspan="7" class="empty">No visitor records found.</td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

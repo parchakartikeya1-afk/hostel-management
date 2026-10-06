@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Rooms & Beds{% endblock %}
+{% block content %}
+<div class="section-head"><div><h2>Rooms & Beds</h2><p>Room capacity and bed availability</p></div></div>
+<div class="table-card"><table><thead><tr><th>Hostel</th><th>Room</th><th>Floor</th><th>Type</th><th>Capacity</th><th>Available Beds</th></tr></thead><tbody>
+{% for r in rooms %}<tr><td>{{ r.HostelName }}</td><td>{{ r.RoomNumber }}</td><td>{{ r.Floor }}</td><td>{{ r.RoomType }}</td><td>{{ r.Capacity }}</td><td>{{ r.available_beds }}</td></tr>
+{% else %}<tr><td colspan="6" class="empty">No rooms found.</td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

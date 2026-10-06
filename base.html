@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HostelDB</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+<div class="brand">Hostel<span>DB</span></div>
+<div class="subtitle">Hostel Management System</div>
+<nav>
+<a href="{{ url_for('dashboard') }}">⌂ Dashboard</a>
+<a href="{{ url_for('students') }}">♙ Students</a>
+<a href="{{ url_for('rooms') }}">▦ Rooms & Beds</a>
+<a href="{{ url_for('allocations') }}">⇄ Allocations</a>
+<a href="{{ url_for('vacating') }}">↪ Vacating</a>
+<div class="nav-label">Student Services</div>
+<a href="{{ url_for('payments') }}">₹ Payments</a>
+<a href="{{ url_for('complaints') }}">! Complaints</a>
+<a href="{{ url_for('maintenance') }}">⚒ Maintenance</a>
+<a href="{{ url_for('services') }}">◇ Services</a>
+<a href="{{ url_for('service_requests') }}">↗ Service Requests</a>
+<div class="nav-label">Administration</div>
+<a href="{{ url_for('staff') }}">♟ Staff</a>
+<a href="{{ url_for('visitors') }}">♧ Visitors</a>
+</nav>
+</aside>
+<main class="main">
+<header class="topbar">
+<div><h1>{% block title %}Dashboard{% endblock %}</h1><p>Hostel Accommodation & Student Services</p></div>
+<div class="db-badge">● MySQL • HostelDB</div>
+</header>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}
+{% endwith %}
+{% block content %}{% endblock %}
+</main>
+</div>
+</body>
+</html>
